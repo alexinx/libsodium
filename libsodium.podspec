@@ -40,9 +40,9 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.ios.xcconfig      = { 
-                                  "OTHER_LDFLAGS" => "-all_load"
+                                  "OTHER_LDFLAGS" => "-DNATIVE_LITTLE_ENDIAN=1 -DHAVE_MADVISE -DHAVE_MMAP -DHAVE_MPROTECT -DHAVE_POSIX_MEMALIGN -DHAVE_WEAK_SYMBOLS"
                                 }
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(SRCROOT)/../libsodium/libsodium/Classes/include/sodium" "$(SRCROOT)/../libsodium/libsodium/Classes/include/sodium/private"' }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/libsodium/include/sodium" "$(PODS_ROOT)/libsodium/include"' }
 
 
 end
