@@ -28,8 +28,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '13.0'
 
-  s.source_files    = 'libsodium/Classes/**/*.{c,h}'
-  s.exclude_files = ['Cyphlens/Classes/Core/**','Cyphlens/Classes/Service/**' ]
+  s.source_files    = 'Sources/Classes/**/*.{c,h}'
+  s.exclude_files = ['Sources/Classes/Core/**','Sources/Classes/Service/**' ]
 
   # s.header_mappings_dir =  'libsodium/Classes/include'
   s.public_header_files = 'libsodium/Classes/include/**/*.{h}'
@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
   s.ios.xcconfig      = { 
                                   "OTHER_LDFLAGS" => "-DNATIVE_LITTLE_ENDIAN=1 -DHAVE_MADVISE -DHAVE_MMAP -DHAVE_MPROTECT -DHAVE_POSIX_MEMALIGN -DHAVE_WEAK_SYMBOLS"
                                 }
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/libsodium/include/sodium" "$(PODS_ROOT)/libsodium/include"' }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/libsodium/include/sodium" "$(PODS_ROOT)/libsodium/include" ' }
 
 
 end
