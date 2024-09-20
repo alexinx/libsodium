@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'libsodium'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of libsodium.'
+  s.version          = '1.0.20'
+  s.summary          = 'Libsodium, also known as Sodium, is a powerful cryptography library'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,26 +17,32 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'Sodium is a modern, easy-to-use software library for encryption, decryption, signatures, password hashing, and more copy of 1.0.20'
 
-  s.homepage         = 'https://github.com/24449613/libsodium'
+  s.homepage         = 'https://github.com/alexinx/libsodium'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '24449613' => 'alexappadurai.swamydhas@ionixxtech.com' }
-  s.source           = { :git => 'https://github.com/24449613/libsodium.git', :tag => s.version.to_s }
+  s.author           = { 'alexinx' => 'alexappadurai.swamydhas@ionixxtech.com' }
+  s.source           = { :git => 'https://github.com/alexinx/libsodium.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
 
-  s.source_files = 'libsodium/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'libsodium' => ['libsodium/Assets/*.png']
-  # }
+  s.source_files    = 'libsodium/Classes/**/*.{c,h}'
+  s.exclude_files = ['Cyphlens/Classes/Core/**','Cyphlens/Classes/Service/**' ]
+
+  # s.header_mappings_dir =  'libsodium/Classes/include'
+  s.public_header_files = 'libsodium/Classes/include/**/*.{h}'
+
+  # s.project_header_files = ['libsodium/Classes/*.h']
+  # s.header_mappings_dir = 'libsodium/Classes/include'
+  # s.requires_arc = false
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.ios.xcconfig      = { 
+                                  "OTHER_LDFLAGS" => "-all_load"
+                                }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(SRCROOT)/../libsodium/libsodium/Classes/include/sodium" "$(SRCROOT)/../libsodium/libsodium/Classes/include/sodium/private"' }
+
+
 end

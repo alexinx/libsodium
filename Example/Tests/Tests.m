@@ -7,7 +7,7 @@
 //
 
 @import XCTest;
-
+#import "sodium.h"
 @interface Tests : XCTestCase
 
 @end
